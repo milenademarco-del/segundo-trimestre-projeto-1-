@@ -21,6 +21,11 @@
             --border-color: #ff3333;
         }
 
+        /* Garante que o preenchimento e as bordas não quebrem o tamanho dos elementos */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: var(--bg-body);
             color: var(--text-color);
@@ -28,6 +33,7 @@
             transition: background-color 0.3s, color 0.3s;
             margin: 0;
             padding: 20px;
+            width: 100%;
         }
 
         /* Botão de alternar tema */
@@ -51,6 +57,7 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
         }
 
         /* Cards dos filmes */
@@ -61,6 +68,17 @@
             border: 5px solid var(--border-color);
             border-radius: 8px;
             text-align: center;
+            width: 100%;
+        }
+
+        /* Garante que o texto se adapte corretamente, sem hifens estranhos ou cortes */
+        .movie-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify; /* Alinha o texto elegantemente nas laterais */
+            word-wrap: break-word; /* Força a quebra de palavras longas se necessário */
+            overflow-wrap: break-word;
+            margin: 15px 0;
         }
 
         img {
@@ -68,6 +86,7 @@
             height: auto;
             display: block;
             margin: 15px auto;
+            border-radius: 4px;
         }
 
         button.like-btn {
@@ -86,8 +105,7 @@
     <div class="container">
         <header>
             <h1>Filmes de Terror 2026</h1>
-            <p>Os filmes de terror do momento</p>
-            <button class="theme-toggle" id="toggleTheme">Mudar para Modo Escuro 🌙</button>
+            <p style="text-align: center;">Os filmes de terror do momento</p>
         </header>
 
         <main>
@@ -102,11 +120,11 @@
 
             <article class="movie-card">
                 <h2>Backrooms</h2>
-                <p>história explora o conceito dos "espaços liminares" — locais vazios, familiares, mas profundamente inquietantes,
-                     como corredores infinitos de escritórios com carpetes úmidos e luzes fluorescentes que zumbem sem parar.
+                <p>A história explora o conceito dos "espaços liminares" — locais vazios, familiares, mas profundamente inquietantes,
+                     como corridors infinitos de escritórios com carpetes úmidos e luzes fluorescentes que zumbem sem parar.
                       A trama acompanha o desespero de pessoas que "caem" fora da realidade
                      convencional e ficam presas nesse labirinto amarelo interminável, onde o isolamento e a sensação 
-                     de estar sendo vigiado testam os limites da sanidade humana..</p>
+                     de estar sendo vigiado testam os limites da sanidade humana.</p>
                 <img src="The-Backrooms.jpg" alt="Poster Backrooms">
                 <button class="like-btn">❤️ <span>0</span></button>
             </article>
@@ -156,14 +174,16 @@
                 <button class="like-btn">❤️ <span>0</span></button>
             </article>
         </main>
+        
+        <footer>
+            <button class="theme-toggle" id="toggleTheme">Mudar para Modo Escuro 🌙</button>
+        </footer>
     </div>
 
     <script>
-        // --- LÓGICA DO MODO ESCURO ---
         const themeBtn = document.getElementById("toggleTheme");
         
         themeBtn.addEventListener("click", () => {
-            // Verifica o tema atual do HTML
             const currentTheme = document.documentElement.getAttribute("data-theme");
             
             if (currentTheme === "dark") {
@@ -175,8 +195,6 @@
             }
         });
 
-        // --- LÓGICA DOS BOTÕES DE CURTIDA (Otimizada) ---
-        // Seleciona todos os botões de curtida de uma vez só
         const botoesCurtida = document.querySelectorAll(".like-btn");
 
         botoesCurtida.forEach(botao => {
