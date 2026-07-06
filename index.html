@@ -1,184 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>filmes</title>
-        <style>
-            header{
-                background-color: rgba(218, 126, 126, 0.527);
-                color:black;
-                text-align: center;
-                max: width 800px;
-                margin:0 auto;
-                border: 5px solid #bd1717
-            }
-
-            img{
-                width: 800px;
-                height: 700px;
-
-
-            }
-
-
-        </style>
-    </head>
-    <body>
-        <header>
-            <main>
-            <h1>filmes de terror 2026</h1>
-            <p>filmes de terror do momento</p>
-            </main>
-            <img src="imagem-filme.png" alt="">
-            <h2>Obsessão</h2>
-            <p>Na trama de 2026, acompanhamos uma história envolvente onde a linha entre a admiração e a loucura desaparece rapidamente. 
-                O longa constrói uma tensão crescente, mostrando como segredos obscuros e uma mente obcecada podem destruir vidas em um piscar de olhos.
-            O desejo de um homem para 
-            que uma bela mulher se apaixone por ele traz consequências terríveis 
-            quando ela começa a exibir um comportamento 
-            cada vez mais perturbador e obsessivo.</p>
-            <button>❤️ <span>0</span></button>
-        </header>
-    <script>
-        const botao = document.querySelector ("button");
-        botao.addEventListener ("click", botaoClicado);
-
-        function botaoClicado(){
-            console.log("fui clicado");
-            let texto = botao.querySelector("span");
-            texto.textContent++;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes de Terror 2026</title>
+    <style>
+        /* Variáveis para controlar as cores (Modo Claro por padrão) */
+        :root {
+            --bg-body: #ffffff;
+            --text-color: #000000;
+            --bg-card: rgba(218, 126, 126, 0.527);
+            --border-color: #bd1717;
         }
-    </script>
-    
+
+        /* Variáveis para o Modo Escuro */
+        [data-theme="dark"] {
+            --bg-body: #121212;
+            --text-color: #ffffff;
+            --bg-card: #1e1e1e;
+            --border-color: #ff3333;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Botão de alternar tema */
+        .theme-toggle {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-card);
+            color: var(--text-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Cards dos filmes */
+        .movie-card {
+            background-color: var(--bg-card);
+            margin: 20px auto;
+            padding: 20px;
+            border: 5px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+        }
+
+        button.like-btn {
+            font-size: 18px;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
         <header>
+            <h1>Filmes de Terror 2026</h1>
+            <p>Os filmes de terror do momento</p>
+            <button class="theme-toggle" id="toggleTheme">Mudar para Modo Escuro 🌙</button>
+        </header>
+
+        <main>
+            <article class="movie-card">
+                <h2>Obsessão</h2>
+                <p>Na trama de 2026, acompanhamos uma história envolvendo onde a linha entre a admiração e a loucura desaparece rapidamente...</p>
+                <img src="imagem-filme.png" alt="Poster Obsessão">
+                <button class="like-btn">❤️ <span>0</span></button>
+            </article>
+
+            <article class="movie-card">
+                <h2>Backrooms</h2>
+                <p>O filme "Backrooms: Um Não-Lugar" é a aguardada adaptação da lenda urbana da internet...</p>
+                <img src="The-Backrooms.jpg" alt="Poster Backrooms">
+                <button class="like-btn">❤️ <span>0</span></button>
+            </article>
+
+            <article class="movie-card">
+                <h2>Pânico 7</h2>
+                <p>Em Pânico 7, Sidney Prescott vive reclusa em uma nova cidade com a família...</p>
+                <img src="panico.png" alt="Poster Pânico 7">
+                <button class="like-btn">❤️ <span>0</span></button>
+            </article>
+
+            <article class="movie-card">
+                <h2>Silent Hill</h2>
+                <p>Uma carta misteriosa chama James de volta a Silent Hill em busca de seu amor perdido...</p>
+                <img src="noticia-completa_terror-em-silent-hill.webp" alt="Poster Silent Hill">
+                <button class="like-btn">❤️ <span>0</span></button>
+            </article>
+
+            <article class="movie-card">
+                <h2>O Primata</h2>
+                <p>O Primata é um filme americano de terror focado na história de um chimpanzé de estimação...</p>
+                <img src="primate.jpg" alt="Poster O Primata">
+                <button class="like-btn">❤️ <span>0</span></button>
+            </article>
+
+            <article class="movie-card">
+                <h2>Extermínio: Templo de Ossos</h2>
+                <p>Sequência direta de Extermínio: A Evolução. A história acompanha o Dr. Kelson...</p>
+                <img src="exterminio-filme-2026.webp" alt="Poster Extermínio">
+                <button class="like-btn">❤️ <span>0</span></button>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        // --- LÓGICA DO MODO ESCURO ---
+        const themeBtn = document.getElementById("toggleTheme");
+        
+        themeBtn.addEventListener("click", () => {
+            // Verifica o tema atual do HTML
+            const currentTheme = document.documentElement.getAttribute("data-theme");
             
-            <main>
-            <h2>backrooms</h2>
-            <p>O filme "Backrooms
-                :Um Não-Lugar" (lançado nos cinemas em maio de 2026) é a aguardada adaptação da lenda 
-                urbana da internet e dos curtas do YouTube criados por Kane Parsons, que também assume 
-                a direção do longa aos 20 anos. Produzido pela A24 em parceria com nomes como James Wan, 
-                o filme se tornou um enorme fenômeno de bilheteria e foca no subgênero do "horror liminar"
-               (o medo de espaços vazios, familiares e infinitos).</p>
-               <img src="The-Backrooms.jpg" alt="">
+            if (currentTheme === "dark") {
+                document.documentElement.removeAttribute("data-theme");
+                themeBtn.textContent = "Mudar para Modo Escuro 🌙";
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeBtn.textContent = "Mudar para Modo Claro ☀️";
+            }
+        });
 
-               <button>❤️ <span>0</span></button>
-    <script>
-        const bota = document.querySelector ("button");
-        bota.addEventListener ("click", botaClicado);
+        // --- LÓGICA DOS BOTÕES DE CURTIDA (Otimizada) ---
+        // Seleciona todos os botões de curtida de uma vez só
+        const botoesCurtida = document.querySelectorAll(".like-btn");
 
-        function botaClicado(){
-            console.log("fui clicado");
-            let texto = bota.querySelector("span");
-            texto.textContent++;
-        }
+        botoesCurtida.forEach(botao => {
+            botao.addEventListener("click", () => {
+                let contador = botao.querySelector("span");
+                contador.textContent = parseInt(contador.textContent) + 1;
+            });
+        });
     </script>
-        </header>
-    </body>
+</body>
 </html>
-
-<header>
-            <main>
-            <h2>Pânico 7</h2>
-            <p>Em Pânico 7, Sidney Prescott 
-                (Neve Campbell) vive reclusa em uma nova cidade com a família, mas seu 
-                 passado retorna quando sua filha adolescente, Tatum, se torna alvo do Ghostface. O longa utiliza inteligência
-                 artificial e deepfakes para criar mistério, trazendo interações com versões digitais de antigos vilões,
-                 como Stu Macher.</p>
-               <img src="panico.png" alt="">
-               <button>❤️ <span>0</span></button>
-    <script>
-        const bot = document.querySelector ("button");
-        bot.addEventListener ("click", botaoClicado);
-
-        function botaoClicado(){
-            console.log("fui clicado");
-            let texto = bot.querySelector("span");
-            texto.textContent++;
-        }
-    </script>
-        </header>
-    </body>
-</html>
-
-<header>
-            <main>
-            <h2>sillent hill</h2>
-            <p>Uma carta misteriosa chama James de volta a Silent Hill em busca de seu amor perdido. 
-                Ele encontra uma cidade antes reconhecível e se depara com figuras aterrorizantes,
-                 tanto familiares quanto novas, e começa a questionar sua própria sanidade.</p>
-               <img src="noticia-completa_terror-em-silent-hill.webp" alt="">
-               <button>❤️ <span>0</span></button>
-    <script>
-        const bo = document.querySelector ("button");
-        bo.addEventListener ("click", botaoClicado);
-
-        function botaoClicado(){
-            console.log("fui clicado");
-            let texto = bo.querySelector("span");
-            texto.textContent++;
-        }
-    </script>
-        </header>
-    </body>
-</html>
-
-<header>
-            <main>
-            <h2>O primata</h2>
-                       <p>O Primata (Primate) é um filme americano de terror e suspense lançado em 
-                        janeiro de 2026 no Brasil, focado na história de um chimpanzé de estimação que
-                         contrai o vírus da raiva e inicia um ataque brutal. Dirigido por
-                         Johannes Roberts (conhecido por Medo Profundo),
-                         o longa-metragem mistura elementos de slasher com o
-                         subgênero de terror com animais, destacando-se pelo
-                         uso de efeitos práticos e muito gore</p>
-               <img src="primate.jpg" alt="">
-               <button>❤️ <span>0</span></button>
-    <script>
-        const botao = document.querySelector ("button");
-        botao.addEventListener ("click", botaoClicado);
-
-        function botaoClicado(){
-            console.log("fui clicado");
-            let texto = botao.querySelector("span");
-            texto.textContent++;
-        }
-    </script>
-        </header>
-    </body>
-</html>
-
-<header>
-            <main>
-            <h2>Extermínio: Templo de ossos</h2>
-                           <p>Extermínio: O Templo dos Ossos (título original: 28 Years Later: The Bone Temple) 
-                            é o quarto filme da aclamada franquia de terror pós-apocalíptica iniciada por Danny Boyle.
-                            Lançado nos cinemas brasileiros em 15 de janeiro de 2026, o longa funciona como uma 
-                            sequência direta de Extermínio: A Evolução (2025). 
-                            Esta produção traz uma mudança na cadeira de direção, comandada por Nia DaCosta, 
-                            enquanto o roteiro permanece assinado pelo criador da saga, Alex Garland. A trama se afasta um pouco do foco tradicional
-                            nos infectados e joga luz sobre a degradação moral e desumanidade dos próprios sobreviventes.
-                            A história acompanha paralelamente o Dr. Kelson, envolvido em uma relação complexa e perigosa com consequências
-                            globais e com o vírus, e o jovem Spike, que acaba preso nos domínios de uma seita brutal e implacável 
-                            liderada pelo aterrorizante Jimmy Crystal. O filme explora como os pequenos "infernos" criados pelos humanos
-                            conseguem ser mais assustadores do que a própria infecção</p>
-               <img src="exterminio-filme-2026.webp" alt="">
-               <button>❤️ <span>0</span></button>
-    <script>
-        const botao = document.querySelector ("button");
-        botao.addEventListener ("click", botaoClicado);
-
-        function botaoClicado(){
-            console.log("fui clicado");
-            let texto = botao.querySelector("span");
-            texto.textContent++;
-        }
-    </script>
-        </header>
-    </body>
-</html>
-
-    
